@@ -20,6 +20,7 @@ export default createGlobalStyle`
     body, input, button, textarea {
         font-family: 'Roboto', serif;
         font-size: 1.6rem;
+        font-style: normal;
     }
 
     a {
