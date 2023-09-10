@@ -4,7 +4,7 @@ export const Container = styled.div`
     grid-area: footer;
     height: 7.7rem;
     width: 100%;
-    padding: 2.4rem 4.7rem;
+    padding: 2.6rem 2.4rem ;
     display: flex;
     align-items: center;
     justify-content: space-between;

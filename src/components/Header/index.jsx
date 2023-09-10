@@ -1,5 +1,4 @@
 import { Container } from "./styles";
-import { Logo } from "../Logo";
 
 export function Header({ menu, icon: Icon, logo, button, ...rest }) {
     return (
