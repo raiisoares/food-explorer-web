@@ -1,10 +1,10 @@
 import { Container } from "./styles";
-import { Logo } from '../Logo';
+import { Brand } from "../../components/Brand";
 
 export function Footer() {
     return (
         <Container>
-            <Logo type={"footer"} /> 
+            <Brand type={"footer"} /> 
             <p>© 2023 - Todos os direitos reservados.</p>
         </Container>
     )

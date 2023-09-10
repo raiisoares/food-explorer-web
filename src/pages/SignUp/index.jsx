@@ -1,5 +1,5 @@
 import { Container } from "./styles"
-import { Logo } from "../../components/Logo";
+import { Brand } from "../../components/Brand";
 import { Button } from "../../components/Button";
 import { ButtonText } from './../../components/ButtonText/index';
 import { Input } from "../../components/Input";
@@ -8,7 +8,7 @@ export function SignUp() {
     return (
         <Container>
             <main>
-                <Logo />
+                <Brand />
                 <form action="">
                     <label>Seu Nome
                         <Input placeholder={"Exemplo: Maria da Silva"} />

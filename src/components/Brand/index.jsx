@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function Logo({type, ...rest}) {
+export function Brand({type, ...rest}) {
     return (
         <Container  {...rest}>
             <div className={type}>
