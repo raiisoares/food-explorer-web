@@ -16,7 +16,6 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             gap: 1.6rem;
-            padding-left: 2.8rem;
 
             >h1{
                 font-size: 2.1rem;

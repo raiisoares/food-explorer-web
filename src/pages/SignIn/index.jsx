@@ -8,7 +8,7 @@ export function SignIn() {
     return (
         <Container>
             <main>
-                <Brand />
+                <Brand type={"auth"} />
                 <form action="">
                     <label>Email
                         <Input placeholder={"Exemplo: exemplo@exemplo.com.br"} />

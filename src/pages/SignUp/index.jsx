@@ -8,7 +8,7 @@ export function SignUp() {
     return (
         <Container>
             <main>
-                <Brand />
+                <Brand type={"auth"} />
                 <form action="">
                     <label>Seu Nome
                         <Input placeholder={"Exemplo: Maria da Silva"} />
