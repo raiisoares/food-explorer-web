@@ -7,10 +7,6 @@ export const Container = styled.div`
         align-items: center;
         gap: 1rem; 
 
-        > svg {
-            font-size: 4.3rem;
-        }
-
         >h1 {
             font-weight: 700; 
             font-size: 3.7rem;
@@ -18,4 +14,19 @@ export const Container = styled.div`
         }
     }
 
+    .footer {
+        > svg {
+            width: 22px;
+            height: 18px; 
+            >path {
+                fill: ${({ theme }) => theme.COLORS.LIGHT_700};
+            }
+        }
+
+        >h1 {
+            font-weight: 700; 
+            font-size: 1.5rem;
+            color: ${({ theme }) => theme.COLORS.LIGHT_700};
+        }
+    }
 `; 
