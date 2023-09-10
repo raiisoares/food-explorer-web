@@ -5,10 +5,7 @@ export const Container = styled.div`
         height: 4.3rem;
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 1rem; 
-        margin: auto;
-        margin-top: 15.8rem;
 
         > svg {
             font-size: 4.3rem;
