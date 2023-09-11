@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 29.2rem;
-    width: 21rem; 
+    position: relative; 
+    min-height: 29.2rem;
+    min-width: 21rem; 
     padding: 2.4rem;
     display: flex;
     flex-direction: column;
@@ -11,7 +12,7 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_200};
     border: solid 1px ${({ theme }) => theme.COLORS.DARK_300};
     border-radius: .8rem;
-    position: relative; 
+    cursor: grab;
 
     >img {
         width: 88px;
