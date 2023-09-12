@@ -8,7 +8,6 @@ export function Section({ name, ...rest }) {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        console.log(carousel.current?.scrollWidth, carousel.current?.offsetWidth)
         setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
     }, []);
 
@@ -16,7 +15,10 @@ export function Section({ name, ...rest }) {
         <Container {...rest}>
             <h1>{name}</h1>
             <motion.div ref={carousel} className="carousel" whileTap={{ cursor: "grabbing" }}>
-                <motion.div className="inner" drag="x" dragConstraints={{right: 0, left: -width}} >
+                <motion.div className="inner"
+                    drag="x"
+                    dragConstraints={{ right: 0, left: -width }}
+                    initial={{ x: 100 }} animate={{ x: 0 }} transition={{ duration: 0.6 }} >
                     <Card />
                     <Card />
                     <Card />
