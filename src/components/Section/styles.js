@@ -22,4 +22,11 @@ export const Container = styled.div`
         flex-direction: row;
         gap: 1.6rem; 
     }
+
+    @media (min-width: 768px) {
+        h1{
+            font-size: 3.2rem;
+            line-height: 4.48rem;
+        }
+    }
 `;

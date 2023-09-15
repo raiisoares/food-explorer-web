@@ -19,16 +19,18 @@ export function Card() {
             <h2>Suco de maracujá <MdKeyboardArrowRight size={20} /></h2>
             <p>Presunto de parma e rúcula em um pão com fermentação natural.</p>
             <span>R$ 13,97</span>
-            <div className="actionButtons">
-                <ButtonIcon>
-                    <AiOutlineMinus />
-                </ButtonIcon>
-                <span className="counter">01</span>
-                <ButtonIcon>
-                    <AiOutlinePlus />
-                </ButtonIcon>
+            <div>
+                <div className="actionButtons">
+                    <ButtonIcon>
+                        <AiOutlineMinus />
+                    </ButtonIcon>
+                    <span className="counter">01</span>
+                    <ButtonIcon>
+                        <AiOutlinePlus />
+                    </ButtonIcon>
+                </div>
+                <Button title={"incluir"} />
             </div>
-            <Button title={"incluir"} />
         </Container>
     )
 }

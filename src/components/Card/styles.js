@@ -33,8 +33,8 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.CAKE_100}   
     }
 
-    >p{
-        display: none;;
+    > p{
+        display: none;
     }
 
     .fav{
@@ -43,12 +43,66 @@ export const Container = styled.div`
         top: 16px; 
     }
 
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.6rem;
+    }
+
     .actionButtons{
         display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.6rem;
         gap: 1.4rem;
         span{
             color: ${({ theme }) => theme.COLORS.LIGHT_100}
         }
+    }
+
+    @media (min-width: 768px) {    
+        height: 46.2rem;
+        width: 30.4rem; 
+        padding: 2.4rem;
+        cursor: default;    
+
+        >img {
+            width: 17.6rem;
+            height: 17.6rem;
+            border-radius: 50%;
+        }
+
+        //TODO: trocar o h2 por um button text
+        >h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 3.36rem;
+            cursor: pointer;
+        }
+
+        > p {
+            display: inline;
+            text-align: center;
+            font-size: 1.4rem;
+            line-height: 2.24rem; 
+            color: ${({ theme }) => theme.COLORS.LIGHT_400}
+        }
+
+        >span {
+            font-size: 3.2rem;
+            line-height: 5.22rem;              
+        }
+
+        >div{
+            flex-direction: row;
+            gap: 1.6rem;
+        }
+
+        .actionButtons{
+            font-size: 2rem;
+        }
+
     }
 
 `;
