@@ -16,4 +16,13 @@ export const Container = styled.div`
         font-size: 1.2rem;
     }
 
+    @media (min-width: 768px) {
+        
+        padding: 2.4rem 12.3rem ;
+  
+        >p {
+            font-size: 1.4rem;
+        }
+    }
+
 `;
