@@ -7,7 +7,6 @@ export const Container = styled.div`
         align-items: center;
         gap: .8rem; 
 
-        
         >svg {
             width: 2.4rem;
             height: 2.4rem; 
@@ -17,6 +16,23 @@ export const Container = styled.div`
             font-size: 2.1rem;
             font-weight: 700;
             line-height: normal; 
+        }
+
+        @media (min-width: 768px) {
+            height: 3rem;
+            min-width: 19.7rem;
+            margin-right: 3.2rem;
+            gap: 1rem; 
+
+            > svg {
+                width: 3rem;
+                height: 3rem; 
+            }
+
+            > h1 {
+                font-size: 2.4rem;
+            }
+
         }
     }
 
