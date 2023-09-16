@@ -18,18 +18,22 @@ export const Content = styled.div`
     grid-area: content;
     padding: 3.6rem 2.8rem 1.3rem;
 
-    >button{
-        height: 5.4rem;
-        width: 100%;
+    .buttons{
         margin-top: 3.6rem;
-        padding-left: 1rem;
-        background-color: transparent;
-        border: none;
-        border-bottom: solid 1px ${({ theme }) => theme.COLORS.DARK_1000};
-        text-align: justify;
-        font-size: 2.4rem;
-        font-weight: 300; 
-        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        >button{
+            height: 5.4rem;
+            width: 100%;
+            margin-top: 1rem;
+            padding-left: 1rem;
+            background-color: transparent;
+            border: none;
+            border-bottom: solid 1px ${({ theme }) => theme.COLORS.DARK_1000};
+            text-align: justify;
+            font-size: 2.4rem;
+            font-weight: 300; 
+            color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        }
     }
+
 
 `;

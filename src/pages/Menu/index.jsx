@@ -12,7 +12,10 @@ export function Menu() {
             <Header menu={true} />
             <Content>
                 <Input icon={SlMagnifier} placeholder={"Busque por pratos ou ingredientes"} />
+                <div className="buttons">
+                <button>Novo Prato</button>
                 <button>Sair</button>
+                </div>
             </Content>
             <Footer />
 
