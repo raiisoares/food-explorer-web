@@ -16,10 +16,10 @@ export function SignUp() {
                             <Input placeholder={"Exemplo: Maria da Silva"} />
                         </label>
                         <label>Email
-                            <Input placeholder={"Exemplo: exemplo@exemplo.com.br"} />
+                            <Input type="mail" placeholder={"Exemplo: exemplo@exemplo.com.br"} />
                         </label>
                         <label>Senha
-                            <Input placeholder={"No mínimo 6 caracteres"} />
+                            <Input type="password" placeholder={"No mínimo 6 caracteres"} />
                         </label>
                         <Button title={"Criar conta"} />
                         <ButtonText title={"Já tenho uma conta"} />

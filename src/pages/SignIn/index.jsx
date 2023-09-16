@@ -16,7 +16,7 @@ export function SignIn() {
                             <Input placeholder={"Exemplo: exemplo@exemplo.com.br"} />
                         </label>
                         <label>Senha
-                            <Input placeholder={"No mínimo 6 caracteres"} />
+                            <Input type="password" placeholder={"No mínimo 6 caracteres"} />
                         </label>
                         <Button title={"Entrar"} />
                         <ButtonText title={"Criar uma conta"} />

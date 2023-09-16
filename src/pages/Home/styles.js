@@ -21,6 +21,75 @@ export const Container = styled.div`
 export const Content = styled.div`
     max-width: 100%;
     grid-area: content;
-    overflow: hidden;
+    overflow-x: auto;
+    
+    .banner {
+        position: relative;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: .3rem;
+        max-width: 100%;
+        height: 12rem;
+        margin: 4.4rem 1.6rem 3.8rem 3rem;
+        border-radius: 2.917px;
+        background: var(--gradients-200, linear-gradient(180deg, #091E26 0%, #00131C 100%));
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
+        >img {
+            position: absolute;
+            top: -2.9rem;
+            left: -3rem;
+        }
+
+        >div {
+            font-family: Poppins;
+            width: 21.5rem;
+            
+            >h2 {
+                
+                font-size: 1.8rem;
+                font-weight: 600;
+                line-height: 2.52rem;           
+            }
+
+            > p {
+                font-size: 1.2rem;
+                line-height: 1.68rem;
+            }
+
+        }
+    }
+
+    @media (min-width: 768px) {
+        .banner{
+            max-width: 100%;
+            margin: 16.4rem 12.4rem 6.2rem;
+            height: 26rem;
+            gap: .8rem;
+        
+            >div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            
+                >h2 {
+                
+                    font-size: 4rem;
+                    font-weight: 600;
+                    line-height: 5.6rem;           
+                }
+
+                > p {
+                    font-size: 1.6rem;
+                    line-height: 1.6rem; 
+                }
+
+            }
+        
+        }
+    }
     
 `;
