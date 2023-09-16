@@ -9,16 +9,19 @@ export function SignIn() {
         <Container>
             <main>
                 <Brand type={"auth"} />
-                <form action="">
-                    <label>Email
-                        <Input placeholder={"Exemplo: exemplo@exemplo.com.br"} />
-                    </label>
-                    <label>Senha
-                        <Input placeholder={"No mínimo 6 caracteres"} />
-                    </label>
-                    <Button title={"Entrar"} />
-                </form>
-                <ButtonText title={"Criar uma conta"} />
+                <div className="form-wrapper">
+                    <h1>Faça login</h1>
+                    <form action="">
+                        <label>Email
+                            <Input placeholder={"Exemplo: exemplo@exemplo.com.br"} />
+                        </label>
+                        <label>Senha
+                            <Input placeholder={"No mínimo 6 caracteres"} />
+                        </label>
+                        <Button title={"Entrar"} />
+                        <ButtonText title={"Criar uma conta"} />
+                    </form>
+                </div>
             </main>
         </Container>
     )
