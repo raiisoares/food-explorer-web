@@ -9,13 +9,10 @@ export const Container = styled.div`
         min-width: 31.6rem;
         padding-top: 15.8rem;
         
-        >div {
+        > div {
            
             >h1 {
                 display: none;
-                font-size: 3.2rem;
-                font-weight: 500;
-                line-height: 4.48rem;
             }
             
             >form {
