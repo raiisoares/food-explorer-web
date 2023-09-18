@@ -15,4 +15,12 @@ export const Container = styled.button`
     font-size: 1.4rem;
     line-height: 2.4rem;
     font-weight: 500;
+
+    .disable {
+        background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+    }
+
+    .hover {
+        background-color: ${({ theme }) => theme.COLORS.TOMATO_200};
+    }
 `;
