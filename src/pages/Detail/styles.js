@@ -37,38 +37,91 @@ export const Content = styled.div`
             padding: 1.6rem 2.6rem;
         }
 
-        >h1 {
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            >h2 {
             font-size: 2.7rem;
             font-weight: 500;
             line-height: 3.7rem;
             color: ${({ theme }) => theme.COLORS.LIGHT_300};
+            }
+
+            >p {
+                text-align: center;
+                font-size: 1.6rem;
+                line-height: 2.2rem;
+                margin: 2.4rem 0 ;
+                color: ${({ theme }) => theme.COLORS.LIGHT_300};
+            }
+
+            .tags {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 2.4rem;
+            }
+
+            .action-wrapper{
+                display: flex;
+                gap: 1.6rem;
+                margin-top: 4.8rem;
+            }
+
+            .actionButtons{
+                display: flex;
+                align-items: center;
+                gap: 1.6rem;
+            }
         }
 
-        >p {
-            text-align: center;
-            font-size: 1.6rem;
-            line-height: 2.2rem;
-            margin: 2.4rem 0 ;
-            color: ${({ theme }) => theme.COLORS.LIGHT_300};
-        }
+        
+    }
 
-        .tags {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2.4rem;
-        }
 
-        .action-wrapper{
-            display: flex;
-            gap: 1.6rem;
-            margin-top: 4.8rem;
-        }
+    @media (min-width: 768px) {
+        height: 100%;
+        padding-top: 2.4rem;
 
-        .actionButtons{
-            display: flex;
+        >main {
+            flex-direction: row;
             align-items: center;
-            gap: 1.6rem;
+            justify-content: center;
+            margin-top: 5rem;
+
+            >img {
+                width: 39rem;
+                height: 39rem; 
+                padding: 1.6rem 2.6rem;
+            }
+
+            .wrapper {
+                align-items: start;
+                padding-left: 4.7rem;
+
+                >h2 {
+                font-size: 4rem;
+                line-height: 5.6rem;
+                }
+
+                >p {
+                    font-size: 2.4rem;
+                    line-height: 3.6rem;
+                }
+
+                .tags {
+                    justify-content: start;
+                    gap: 1.2rem;
+                }
+
+                .action-wrapper{
+                    max-width: 35rem;
+                    gap: 3.3rem;
+                    margin-top: 4.8rem;
+                }
+            }
         }
     }
        

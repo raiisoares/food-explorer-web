@@ -18,27 +18,29 @@ export function Detail() {
                 <ButtonText icon={MdKeyboardArrowLeft} title="Voltar" />
                 <main>
                     <img src={sobremesa} />
-                    <h2>Salada Ravanello</h2>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
-                    <div className="tags">
-                        <Tag title="alface" />
-                        <Tag title="cebola" />
-                        <Tag title="pão naan" />
-                        <Tag title="pepino" />
-                        <Tag title="rabanete" />
-                        <Tag title="tomate" />
-                    </div>
-                    <div className="action-wrapper">
-                        <div className="actionButtons">
-                            <ButtonIcon>
-                                <AiOutlineMinus />
-                            </ButtonIcon>
-                            <span className="counter">01</span>
-                            <ButtonIcon>
-                                <AiOutlinePlus />
-                            </ButtonIcon>
+                    <div className="wrapper">
+                        <h2>Salada Ravanello</h2>
+                        <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+                        <div className="tags">
+                            <Tag title="alface" />
+                            <Tag title="cebola" />
+                            <Tag title="pão naan" />
+                            <Tag title="pepino" />
+                            <Tag title="rabanete" />
+                            <Tag title="tomate" />
                         </div>
-                        <Button icon={PiReceiptLight} title="pedir R$ 25,00" />
+                        <div className="action-wrapper">
+                            <div className="actionButtons">
+                                <ButtonIcon>
+                                    <AiOutlineMinus />
+                                </ButtonIcon>
+                                <span className="counter">01</span>
+                                <ButtonIcon>
+                                    <AiOutlinePlus />
+                                </ButtonIcon>
+                            </div>
+                            <Button icon={PiReceiptLight} title="pedir R$ 25,00" />
+                        </div>
                     </div>
                 </main>
             </Content>
