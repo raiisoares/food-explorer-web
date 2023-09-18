@@ -24,7 +24,6 @@ export const Content = styled.div`
     overflow-x: auto;
     
     .banner {
-        position: relative;
         display: flex;
         justify-content: end;
         align-items: center;
@@ -37,9 +36,10 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
         >img {
-            position: absolute;
-            top: -2.9rem;
-            left: -3rem;
+            width: 19.1rem;
+            height: 14.9rem; 
+            margin-bottom: 3.1rem;
+            margin-left: -3.1rem;
         }
 
         >div {
@@ -67,6 +67,13 @@ export const Content = styled.div`
             margin: 16.4rem 12.4rem 6.2rem;
             height: 26rem;
             gap: .8rem;
+
+            >img {
+                width: 63.2rem;
+                height: 40.6rem;
+                margin-bottom: 14.6rem;
+                margin-left: -6.1rem;
+            }
         
             >div {
                 display: flex;
@@ -74,7 +81,6 @@ export const Content = styled.div`
                 justify-content: center;
                 align-items: center;
                 width: 100%;
-            
                 >h2 {
                 
                     font-size: 4rem;
