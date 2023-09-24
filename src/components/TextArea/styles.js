@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Container = styled.textarea`
   width: 100%;
   height: 17.2rem;
-  padding: 1.4rem; 
+  padding: 1.4rem;
   border: none;
-  border-radius: .8rem; 
+  border-radius: 0.8rem;
   font-family: Roboto;
   font-weight: 400;
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
-  color: ${({ theme }) => theme.COLORS.LIGHT_500}; 
+  color: ${({ theme }) => theme.COLORS.LIGHT_500};
 `;

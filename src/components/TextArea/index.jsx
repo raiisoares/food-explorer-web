@@ -1,9 +1,5 @@
-import { Container } from "./styles"
+import { Container } from "./styles";
 
 export function TextArea({ ...rest }) {
-  return (
-    <Container {...rest}>
-
-    </Container>
-  )
+  return <Container {...rest}></Container>;
 }
