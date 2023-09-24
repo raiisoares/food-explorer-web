@@ -6,8 +6,11 @@ import { Input } from './../Input/index';
 import { SlMenu, SlMagnifier } from "react-icons/sl"
 import { FiX } from "react-icons/fi";
 import { PiReceiptLight } from "react-icons/pi";
+import { useAuth } from "../../hooks/auth"
 
-export function Header({ menu, icon: Icon, logo, button, ...rest }) {
+export function Header({ menu, ...rest }) {
+    const { signOut } = useAuth();
+
     return (
         <Container {...rest}>
 
@@ -25,14 +28,14 @@ export function Header({ menu, icon: Icon, logo, button, ...rest }) {
                     <Brand />
                     <Input icon={SlMagnifier} placeholder={"Busque por pratos ou ingredientes"} />
                     <Button icon={PiReceiptLight} title={"pedidos (0)"} />
-                    <ButtonIcon>
+                    <ButtonIcon className="singUp" onClick={signOut}>
                         <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SignOut">
                                 <path id="Vector" d="M21.75 12.1164L27 17.3664M27 17.3664L21.75 22.6164M27 17.3664H13M13 28.3664H6C5.73478 28.3664 5.48043 28.261 5.29289 28.0735C5.10536 27.886 5 27.6316 5 27.3664V7.36639C5 7.10118 5.10536 6.84682 5.29289 6.65929C5.48043 6.47175 5.73478 6.36639 6 6.36639H13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </g>
                         </svg>
                     </ButtonIcon>
-                    <ButtonIcon>
+                    <ButtonIcon className="menu">
                         <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M5.5 8.00023C5.5 7.44794 5.94772 7.00023 6.5 7.00023H19.5C20.0523 7.00023 20.5 7.44794 20.5 8.00023C20.5 8.55251 20.0523 9.00023 19.5 9.00023H6.5C5.94772 9.00023 5.5 8.55251 5.5 8.00023Z" fill="white" />
                             <path fillRule="evenodd" clipRule="evenodd" d="M5.5 12.0002C5.5 11.4479 5.94772 11.0002 6.5 11.0002H19.5C20.0523 11.0002 20.5 11.4479 20.5 12.0002C20.5 12.5525 20.0523 13.0002 19.5 13.0002H6.5C5.94772 13.0002 5.5 12.5525 5.5 12.0002Z" fill="white" />
