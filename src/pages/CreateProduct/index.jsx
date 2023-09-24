@@ -3,6 +3,8 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
+import { ButtonUpload } from '../../components/ButtonUpload';
+import { TextArea } from "../../components/TextArea";
 
 export function CreateProduct() {
     return (
@@ -15,7 +17,7 @@ export function CreateProduct() {
                         <form>
                             <fieldset>
                                 <label htmlFor="">Imagem do prato</label>
-                                <Input />
+                                <ButtonUpload title="Selecione imagem" />
                                 <label htmlFor="">Nome</label>
                                 <Input placeholder="Ex.: Salada Ceasar" />
                                 <label htmlFor="">Categoria</label>
@@ -23,11 +25,12 @@ export function CreateProduct() {
                             </fieldset>
 
                             <fieldset>
-
                                 <label htmlFor="">Ingredientes</label>
                                 <Input />
-                                <label htmlFor="">Categoria</label>
+                                <label htmlFor="">Preço</label>
                                 <Input placeholder="R$ 00,00" />
+                                <label htmlFor="">Descrição</label>
+                                <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"></TextArea>
                             </fieldset>
                             <Button state="disable" title="Salvar alterações" />
                         </form>
