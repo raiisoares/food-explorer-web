@@ -1,8 +1,8 @@
 import { Container } from "./styles"
 import { Brand } from "../../components/Brand";
 import { Button } from "../../components/Button";
-import { ButtonText } from './../../components/ButtonText/index';
 import { Input } from "../../components/Input";
+import { Link } from "react-router-dom";
 
 export function SignUp() {
     return (
@@ -22,7 +22,7 @@ export function SignUp() {
                             <Input type="password" placeholder={"No mínimo 6 caracteres"} />
                         </label>
                         <Button title={"Criar conta"} />
-                        <ButtonText title={"Já tenho uma conta"} />
+                        <Link to={"/"}>Já tenho uma conta</Link>
                     </form>
                 </div>
             </main>
