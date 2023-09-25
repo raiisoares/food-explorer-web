@@ -7,6 +7,8 @@ import { ButtonUpload } from "../../components/ButtonUpload";
 import { TextArea } from "../../components/TextArea";
 import { NoteItem } from "../../components/NoteItem";
 import { SelectOptions } from "../../components/Select";
+import { Link } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 export function CreateProduct() {
   return (
@@ -14,6 +16,10 @@ export function CreateProduct() {
       <Header />
       <Content>
         <main>
+          <Link to="/">
+            <ChevronLeft />
+            Voltar
+          </Link>
           <section>
             <h1>Novo Prato</h1>
             <form>
@@ -23,14 +29,14 @@ export function CreateProduct() {
                 <label htmlFor="">Nome</label>
                 <Input placeholder="Ex.: Salada Ceasar" />
                 <label htmlFor="">Categoria</label>
-                <SelectOptions></SelectOptions>
+                <SelectOptions />
               </fieldset>
 
               <fieldset>
                 <label htmlFor="">Ingredientes</label>
                 <div className="items-wrapper">
-                  {/* <NoteItem isNew placeholder="teste"/> */}
-                  <NoteItem placeholder="teste" value="teste" />
+                  <NoteItem placeholder={"teste"} value={"teste"} />
+                  <NoteItem isNew={true} placeholder="teste" />
                 </div>
                 <label htmlFor="">Preço</label>
                 <Input placeholder="R$ 00,00" />

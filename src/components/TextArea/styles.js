@@ -4,6 +4,7 @@ export const Container = styled.textarea`
   width: 100%;
   height: 17.2rem;
   padding: 1.4rem;
+  resize: none;
   border: none;
   border-radius: 0.8rem;
   font-family: Roboto;

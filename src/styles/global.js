@@ -23,6 +23,10 @@ export default createGlobalStyle`
         font-style: normal;
     }
 
+    input {
+        width: fit-content;
+    }
+
     a {
         text-decoration: none;
     }
@@ -39,5 +43,6 @@ export default createGlobalStyle`
     textarea:focus, input:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
+    resize: none;
 }
 `;

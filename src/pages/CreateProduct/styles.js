@@ -22,6 +22,7 @@ export const Content = styled.div`
 
   grid-area: content;
   overflow-x: auto;
+  margin-bottom: 5.3rem;
 
   > main {
     height: 100%;
@@ -29,6 +30,18 @@ export const Content = styled.div`
     flex-direction: column;
     gap: 2.4rem;
     padding: 1rem 3.2rem 0;
+
+    > a {
+      padding-left: 0;
+      display: flex;
+      align-items: center;
+      font-family: Poppins;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 2.3rem;
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+      text-decoration: none;
+    }
 
     > section {
       display: flex;
@@ -54,13 +67,15 @@ export const Content = styled.div`
 
   .items-wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 1.6rem;
-    height: 4.8rem;
+    min-height: 4.8rem;
+    max-width: 100%;
     padding: 0.4rem 0.8rem;
     border-radius: 0.8rem;
     background-color: ${({ theme }) => theme.COLORS.DARK_900};
-    /* flex-wrap: nowrap; */
   }
 
   @media (min-width: 768px) {
