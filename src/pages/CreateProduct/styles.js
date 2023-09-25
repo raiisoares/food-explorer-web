@@ -52,6 +52,17 @@ export const Content = styled.div`
     }
   }
 
+  .items-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    height: 4.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.8rem;
+    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    /* flex-wrap: nowrap; */
+  }
+
   @media (min-width: 768px) {
   }
 `;

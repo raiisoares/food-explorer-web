@@ -28,4 +28,3 @@ export function Routes() {
     <BrowserRouter>{user ? <AccessRoutes /> : <AuthRoutes />}</BrowserRouter>
   );
 }
-S

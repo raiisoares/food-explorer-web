@@ -6,6 +6,7 @@ import { Button } from "../../components/Button";
 import { ButtonUpload } from "../../components/ButtonUpload";
 import { TextArea } from "../../components/TextArea";
 import { NoteItem } from "../../components/NoteItem";
+import { SelectOptions } from "../../components/Select";
 
 export function CreateProduct() {
   return (
@@ -22,13 +23,14 @@ export function CreateProduct() {
                 <label htmlFor="">Nome</label>
                 <Input placeholder="Ex.: Salada Ceasar" />
                 <label htmlFor="">Categoria</label>
-                <Input />
+                <SelectOptions></SelectOptions>
               </fieldset>
 
               <fieldset>
                 <label htmlFor="">Ingredientes</label>
-                <div>
-                  <NoteItem></NoteItem>
+                <div className="items-wrapper">
+                  {/* <NoteItem isNew placeholder="teste"/> */}
+                  <NoteItem placeholder="teste" value="teste" />
                 </div>
                 <label htmlFor="">Preço</label>
                 <Input placeholder="R$ 00,00" />

@@ -1,36 +1,46 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: fit-content; */
+  border-radius: 1rem;
+  padding-right: 1.6rem;
+
+  background-color: ${({ theme, isNew }) =>
+    isNew ? "transparent" : theme.COLORS.LIGHT_600};
+  color: ${({ theme, isNew }) =>
+    isNew ? theme.COLORS.LIGHT_500 : theme.COLORS.LIGHT_100};
+  border: ${({ theme, isNew }) =>
+    isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none"};
+
+  input {
     display: flex;
-    align-items: center;
-    background-color: ${({ theme, isNew }) =>  isNew ? "transparent" : theme.COLORS.BACKGROUND_900};
-    color: ${({ theme }) => theme.COLORS.GRAY_100};
-
-    border: ${({ theme, isNew }) =>  isNew ? `1px dashed ${theme.COLORS.GRAY_300}` : "none"};
-
-    margin-bottom: .8rem;
+    /* width: fit-content; */
+    height: 3.2rem;
+    padding: 1rem 1.6rem;
+    border: none;
     border-radius: 1rem;
-    padding-right: 1.6rem;
-    
-    > button {
-        border: none;
-        background: none;
-    }
+    background-color: ${({ theme }) => theme.COLORS.LIGHT_600};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-    .button-delete, .button-add {
-        color: ${({ theme }) => theme.COLORS.PINK};
+    &::placeholder {
+      color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
+  }
 
-    > input {
-        height: 5.6rem;
-        width: 100%;
-        padding: 1.2rem;
-        color: ${({ theme }) => theme.COLORS.WHITE};
-        background: transparent;
-        border: none;
+  > button {
+    border: none;
+    background: none;
+  }
 
-        &::placeholder {
-            color: ${({ theme }) => theme.COLORS.GRAY_100};
-        }
-    }
+  .button-add {
+    color: ${({ theme }) => theme.COLORS.LIGHT_500};
+  }
+
+  .button-delete {
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  }
 `;
+
