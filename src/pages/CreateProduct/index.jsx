@@ -23,27 +23,39 @@ export function CreateProduct() {
           <section>
             <h1>Novo Prato</h1>
             <form>
-              <fieldset>
-                <label htmlFor="">Imagem do prato</label>
-                <ButtonUpload title="Selecione imagem" />
-                <label htmlFor="">Nome</label>
-                <Input placeholder="Ex.: Salada Ceasar" />
-                <label htmlFor="">Categoria</label>
-                <SelectOptions />
+              <fieldset className="basic-wrapper">
+                <div className="img">
+                  <label htmlFor="">Imagem do prato</label>
+                  <ButtonUpload title="Selecione imagem" />
+                </div>
+                <div className="name">
+                  <label htmlFor="">Nome</label>
+                  <Input placeholder="Ex.: Salada Ceasar" />
+                </div>
+                <div className="category">
+                  <label htmlFor="">Categoria</label>
+                  <SelectOptions />
+                </div>
               </fieldset>
 
-              <fieldset>
-                <label htmlFor="">Ingredientes</label>
-                <div className="items-wrapper">
-                  <NoteItem placeholder={"teste"} value={"teste"} />
-                  <NoteItem isNew={true} placeholder="teste" />
+              <fieldset className="info-wrapper">
+                <div className="ingredients">
+                  <label htmlFor="">Ingredientes</label>
+                  <div className="items-wrapper">
+                    <NoteItem placeholder={"teste"} value={"teste"} />
+                    <NoteItem isNew={true} placeholder="teste" />
+                  </div>
                 </div>
-                <label htmlFor="">Preço</label>
-                <Input placeholder="R$ 00,00" />
-                <label htmlFor="">Descrição</label>
-                <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"></TextArea>
+                <div className="price">
+                  <label htmlFor="">Preço</label>
+                  <Input placeholder="R$ 00,00" />
+                </div>
               </fieldset>
+              <label htmlFor="">Descrição</label>
+              <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"></TextArea>
+              <div className="button-wrapper">
               <Button state="disable" title="Salvar alterações" />
+              </div>
             </form>
           </section>
         </main>

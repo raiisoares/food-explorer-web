@@ -30,12 +30,13 @@ export const Content = styled.div`
     flex-direction: column;
     gap: 2.4rem;
     padding: 1rem 3.2rem 0;
+    font-family: Poppins;
 
     > a {
       padding-left: 0;
       display: flex;
       align-items: center;
-      font-family: Poppins;
+
       font-size: 1rem;
       font-weight: 500;
       line-height: 2.3rem;
@@ -58,11 +59,25 @@ export const Content = styled.div`
           border: none;
         }
 
-        button:nth-child(3) {
-          background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+        .button-wrapper {
+          display: flex;
+          button:nth-child(1) {
+            width: 100%;
+            background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+          }
         }
       }
     }
+  }
+
+  .name,
+  .category,
+  .img,
+  .ingredients,
+  .price {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
   }
 
   .items-wrapper {
@@ -79,5 +94,63 @@ export const Content = styled.div`
   }
 
   @media (min-width: 768px) {
+    > main {
+      > a {
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 3.3rem;
+      }
+
+      > section {
+        > h1 {
+          font-size: 3.2rem;
+          font-weight: 500;
+          line-height: 4.4rem; /* 44.8px */
+        }
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        > form {
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
+          > fieldset {
+            display: flex;
+            flex-direction: row;
+            gap: 1.6rem;
+            border: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .basic-wrapper,
+    .info-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .name,
+    .ingredients {
+      flex: 1;
+    }
+
+    .category {
+      flex: 1;
+      max-width: 36.4rem;
+    }
+
+    .items-wrapper {
+      justify-content: start;
+    }
+
+    .button-wrapper {
+      justify-content: end;
+      > button:nth-child(1) {
+        max-width: fit-content;
+      }
+    }
   }
 `;
