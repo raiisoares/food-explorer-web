@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AuthRoutes } from "../routes/auth.routes";
 import { AdminRoutes } from "../routes/admin.routes";
+import { CostumerRoutes } from "../routes/customer.routes";
 import { USER_ROLE } from "../utils/roles";
 import { useAuth } from "../hooks/auth";
 import { api } from "../services/api";
