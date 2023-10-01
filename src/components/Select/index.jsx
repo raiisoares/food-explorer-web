@@ -1,21 +1,12 @@
 import { useEffect, useState } from "react";
 import Select from "react-select";
 
-export function SelectOptions() {
-  const [selected, setSelected] = useState(null);
-
-  const options = [
-    { value: "Refeições", label: "Refeições" },
-    { value: "Sobremesas", label: "Sobremesas" },
-    { value: "Bebidas", label: "Bebidas" },
-  ];
+export function SelectOptions({options, ...rest}) {
 
   return (
-    <Select
+    <Select {...rest}
       options={options}
       placeholder="Escolha a categoria"
-      defaultValue={selected}
-      onChange={(e) => setSelected(e)}
       styles={{
         control: (baseStyles, state) => ({
           ...baseStyles,

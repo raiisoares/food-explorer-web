@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, Content } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
@@ -7,10 +8,62 @@ import { ButtonUpload } from "../../components/ButtonUpload";
 import { TextArea } from "../../components/TextArea";
 import { NoteItem } from "../../components/NoteItem";
 import { SelectOptions } from "../../components/Select";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
+import { api } from "../../services/api";
 
 export function CreateProduct() {
+  const navigate = useNavigate();
+
+  const [name, setName] = useState("");
+
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [type, setType] = useState("");
+
+  const [price, setPrice] = useState(0);
+  const [description, setDescription] = useState("");
+
+  const [ingredients, setIngredients] = useState([]);
+  const [newIngredient, setNewIngredient] = useState("");
+
+  const options = [
+    { value: "refeição", label: "Refeições" },
+    { value: "sobremesa", label: "Sobremesas" },
+    { value: "bebida", label: "Bebidas" },
+  ];
+
+  const handleAddIngredient = (event) => {
+    event.preventDefault();
+    setIngredients((prevState) => [...prevState, newIngredient]);
+    setNewIngredient("");
+  };
+
+  const handleRemoveIngredient = (deleted) => {
+    setIngredients((prevState) =>
+      prevState.filter((ingredient) => ingredient !== deleted),
+    );
+  };
+
+  const handleSelectChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+    setType(selectedOption.value);
+  };
+
+  const create = async () => {
+    try {
+      await api.post("/products", {
+        name,
+        type,
+        price,
+        description,
+        ingredients,
+      });
+      alert("Produto criado com sucesso.");
+      navigate(-1);
+    } catch (error) {
+      console.error("Erro ao criar produto:", error);
+    }
+  };
   return (
     <Container>
       <Header />
@@ -30,31 +83,62 @@ export function CreateProduct() {
                 </div>
                 <div className="name">
                   <label htmlFor="">Nome</label>
-                  <Input placeholder="Ex.: Salada Ceasar" />
+                  <Input
+                    placeholder="Ex.: Salada Ceasar"
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className="category">
                   <label htmlFor="">Categoria</label>
-                  <SelectOptions />
+                  <SelectOptions
+                    options={options}
+                    value={selectedOption}
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </fieldset>
 
               <fieldset className="info-wrapper">
                 <div className="ingredients">
                   <label htmlFor="">Ingredientes</label>
-                  <div className="items-wrapper">
-                    <NoteItem placeholder={"teste"} value={"teste"} />
-                    <NoteItem isNew={true} placeholder="teste" />
+                  <div className="">
+                    {ingredients.map((ingredient, index) => (
+                      <NoteItem
+                        key={String(index)}
+                        value={ingredient}
+                        onClick={() => {
+                          handleRemoveIngredient(ingredient);
+                        }}
+                      />
+                    ))}
+                    <NoteItem
+                      isNew
+                      value={newIngredient}
+                      placeholder="Nova tag"
+                      onChange={(event) => setNewIngredient(event.target.value)}
+                      onClick={handleAddIngredient}
+                    />
                   </div>
                 </div>
                 <div className="price">
                   <label htmlFor="">Preço</label>
-                  <Input placeholder="R$ 00,00" />
+                  <Input
+                    placeholder="R$ 00,00"
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
                 </div>
               </fieldset>
               <label htmlFor="">Descrição</label>
-              <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"></TextArea>
+              <TextArea
+                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                onChange={(e) => setDescription(e.target.value)}
+              />
               <div className="button-wrapper">
-              <Button state="disable" title="Salvar alterações" />
+                <Button
+                  state="disable"
+                  title="Salvar alterações"
+                  onClick={create}
+                />
               </div>
             </form>
           </section>
