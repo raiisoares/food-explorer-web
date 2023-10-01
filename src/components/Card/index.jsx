@@ -5,9 +5,9 @@ import image from "../../assets/sobremesa.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-export function Card() {
+export function Card({data, ...rest}) {
   return (
-    <Container>
+    <Container {...rest}>
       <div className="fav">
         <ButtonIcon>
           <svg
@@ -28,10 +28,10 @@ export function Card() {
       </div>
       <img src={image} alt="Sobremesa" srcSet="" />
       <h2>
-        Suco de maracujá <MdKeyboardArrowRight size={20} />
+        {data.title} <MdKeyboardArrowRight size={20} />
       </h2>
-      <p>Presunto de parma e rúcula em um pão com fermentação natural.</p>
-      <span>R$ 13,97</span>
+      <p>{data.description}</p>
+      <span>{data.price}</span>
       <div>
         <div className="actionButtons">
           <ButtonIcon>

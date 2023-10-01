@@ -2,18 +2,34 @@ import { useState, useEffect, useRef } from "react";
 import { Container } from "./styles";
 import { Card } from "../Card";
 import { motion } from "framer-motion";
+import { api } from "../../services/api";
 
-export function Section({ name, ...rest }) {
+export function Section({ name, category, ...rest }) {
   const carousel = useRef();
   const [width, setWidth] = useState(0);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get("/products", { params: { name } });
+        console.log(response.data);
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchData();
+  }, [name]);
+
   return (
     <Container {...rest}>
-      <h1>{name}</h1>
+      <h1>{category}</h1>
       <motion.div
         ref={carousel}
         className="carousel"
@@ -27,9 +43,9 @@ export function Section({ name, ...rest }) {
           animate={{ x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Card />
-          <Card />
-          <Card />
+          {products.map((product, index) => (
+            <Card key={String(index)} data={product} />
+          ))}
         </motion.div>
       </motion.div>
     </Container>
