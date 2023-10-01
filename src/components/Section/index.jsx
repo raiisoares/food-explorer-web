@@ -17,7 +17,6 @@ export function Section({ name, category, ...rest }) {
     const fetchData = async () => {
       try {
         const response = await api.get("/products", { params: { name } });
-        console.log(response.data);
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
