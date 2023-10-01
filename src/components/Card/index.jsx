@@ -4,8 +4,15 @@ import { ButtonIcon } from "../ButtonIcon";
 import image from "../../assets/sobremesa.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-export function Card({data, ...rest}) {
+export function Card({ data, ...rest }) {
+  const navigate = useNavigate();
+
+  async function showDetail(id) {
+    navigate(`/detail/${id}`);
+  }
+
   return (
     <Container {...rest}>
       <div className="fav">
@@ -27,11 +34,12 @@ export function Card({data, ...rest}) {
         </ButtonIcon>
       </div>
       <img src={image} alt="Sobremesa" srcSet="" />
-      <h2>
-        {data.title} <MdKeyboardArrowRight size={20} />
-      </h2>
+      <button className="details" onClick={(e) => showDetail(data.id)}>
+        <span>{data.name}</span>
+        <MdKeyboardArrowRight size={20} />
+      </button>
       <p>{data.description}</p>
-      <span>{data.price}</span>
+      <span>R$ {data.price}</span>
       <div>
         <div className="actionButtons">
           <ButtonIcon>

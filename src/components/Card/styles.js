@@ -20,13 +20,16 @@ export const Container = styled.div`
     border-radius: 50%;
   }
 
-  > h2 {
+  .details{
     display: flex;
     align-items: center;
     font-family: Poppins;
     font-size: 1.4rem;
     font-weight: 500;
     line-height: 2.4rem;
+    background: transparent;
+    border: none;
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
   > span {
@@ -74,7 +77,7 @@ export const Container = styled.div`
     }
 
     //TODO: trocar o h2 por um button text
-    > h2 {
+    .details {
       font-size: 2.4rem;
       font-weight: 700;
       line-height: 3.36rem;

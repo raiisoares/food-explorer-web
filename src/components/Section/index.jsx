@@ -43,8 +43,8 @@ export function Section({ name, category, ...rest }) {
           animate={{ x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {products.map((product, index) => (
-            <Card key={String(index)} data={product} />
+          {products.map((product) => (
+            <Card key={String(product.id)} data={product} />
           ))}
         </motion.div>
       </motion.div>
