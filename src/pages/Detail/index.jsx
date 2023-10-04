@@ -7,16 +7,34 @@ import { Button } from "../../components/Button";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { PiReceiptLight } from "react-icons/pi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import sobremesa from "../../assets/sobremesa.png";
 import { ButtonText } from "./../../components/ButtonText/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
+import imagePlaceholder from "../../assets/food-placeholder.jpg";
 
 export function Detail() {
   const params = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
+  const [image, setImage] = useState(null);
+
+  const [price, setPrice] = useState(0);
+  const [counter, setCounter] = useState(1);
+
+  const handlePlusButton = async () => {
+    if (data) {
+      setCounter((prevState) => prevState + 1);
+      setPrice((prevState) => prevState + data.price);
+    }
+  };
+
+  const handleMinusButton = async () => {
+    if (data && counter > 1) {
+      setCounter((prevState) => prevState - 1);
+      setPrice((prevState) => prevState - data.price);
+    }
+  };
 
   useEffect(() => {
     async function fetchProduct() {
@@ -26,15 +44,29 @@ export function Detail() {
     fetchProduct();
   }, []);
 
+  useEffect(() => {
+    if (data) {
+      const imageUrl = data.image
+        ? `${api.defaults.baseURL}/files/${data.image}`
+        : imagePlaceholder;
+      setImage(imageUrl);
+      setPrice(data.price);
+    }
+  }, [data]);
+
   return (
     <Container>
       <Header />
       <Content>
-        <ButtonText icon={MdKeyboardArrowLeft} title="Voltar" onClick={(e) => navigate(-1)} />
+        <ButtonText
+          icon={MdKeyboardArrowLeft}
+          title="Voltar"
+          onClick={(e) => navigate(-1)}
+        />
         <main>
           {data && (
             <>
-              <img src={sobremesa} />
+              <img src={image} />
               <div className="wrapper">
                 <h2>{data.name}</h2>
                 <p>{data.description}</p>
@@ -45,15 +77,15 @@ export function Detail() {
                 </div>
                 <div className="action-wrapper">
                   <div className="actionButtons">
-                    <ButtonIcon>
+                    <ButtonIcon onClick={handleMinusButton}>
                       <AiOutlineMinus />
                     </ButtonIcon>
-                    <span className="counter">01</span>
-                    <ButtonIcon>
+                    <span className="counter">{counter}</span>
+                    <ButtonIcon onClick={handlePlusButton}>
                       <AiOutlinePlus />
                     </ButtonIcon>
                   </div>
-                  <Button icon={PiReceiptLight} title="pedir R$ 25,00" />
+                  <Button icon={PiReceiptLight} title={`pedir R$ ${price}`} />
                 </div>
               </div>
             </>
