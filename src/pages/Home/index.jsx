@@ -17,7 +17,7 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
           </div>
         </div>
-        <Section category={"Refeições"} name={"bebida"} />
+        <Section category={"Refeições"} name={"refeição"} />
       </Content>
 
       <Footer />

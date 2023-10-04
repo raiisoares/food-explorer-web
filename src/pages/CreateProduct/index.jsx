@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Content } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
@@ -26,6 +26,9 @@ export function CreateProduct() {
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
 
+  const [avatar, setAvatar] = useState(null);
+  const [avatarFile, setAvatarFile] = useState(null);
+
   const options = [
     { value: "refeição", label: "Refeições" },
     { value: "sobremesa", label: "Sobremesas" },
@@ -49,21 +52,49 @@ export function CreateProduct() {
     setType(selectedOption.value);
   };
 
+  const handleImageAvatar = (event) => {
+    const file = event.target.files[0];
+    setAvatarFile(file);
+
+    const imgPreview = URL.createObjectURL(file);
+    setAvatar(imgPreview);
+  };
+
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    document.getElementById("uploadInput").click();
+  };
+
+  useEffect(() => {
+    console.log(avatarFile);
+    console.log(avatar);
+  }, [avatar]);
+
   const create = async () => {
     try {
-      await api.post("/products", {
+      const createProductResponse = await api.post("/products", {
         name,
         type,
-        price,
         description,
+        price,
         ingredients,
       });
+
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("image", avatarFile);
+
+      await api.patch(
+        `/products/${createProductResponse.data}/image`,
+        fileUploadForm,
+      );
+      
       alert("Produto criado com sucesso.");
       navigate(-1);
     } catch (error) {
       console.error("Erro ao criar produto:", error);
     }
   };
+
   return (
     <Container>
       <Header />
@@ -78,8 +109,18 @@ export function CreateProduct() {
             <form>
               <fieldset className="basic-wrapper">
                 <div className="img">
-                  <label htmlFor="">Imagem do prato</label>
-                  <ButtonUpload title="Selecione imagem" />
+                  <label htmlFor="uploadInput">Imagem do prato</label>
+                  <ButtonUpload
+                    title="Selecione imagem"
+                    onClick={handleButtonClick}
+                    tabIndex="-1"
+                  />
+                  <input
+                    type="file"
+                    id="uploadInput"
+                    style={{ display: "none" }}
+                    onChange={handleImageAvatar}
+                  />
                 </div>
                 <div className="name">
                   <label htmlFor="">Nome</label>
@@ -137,7 +178,10 @@ export function CreateProduct() {
                 <Button
                   state="disable"
                   title="Salvar alterações"
-                  onClick={create}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    create();
+                  }}
                 />
               </div>
             </form>

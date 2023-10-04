@@ -1,17 +1,37 @@
 import { Container } from "./styles";
 import { Button } from "../Button";
 import { ButtonIcon } from "../ButtonIcon";
-import image from "../../assets/sobremesa.png";
+import imagePlaceholder from "../../assets/food-placeholder.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { api } from "../../services/api";
 
 export function Card({ data, ...rest }) {
   const navigate = useNavigate();
+  const [price, setPrice] = useState(data.price);
+  const [counter, setCounter] = useState(1);
+  const imageUrl = data.image
+    ? `${api.defaults.baseURL}/files/${data.image}`
+    : imagePlaceholder;
+  const [image, setImage] = useState(imageUrl);
 
   async function showDetail(id) {
     navigate(`/detail/${id}`);
   }
+
+  const handlePlusButton = async () => {
+    setCounter((prevState) => prevState + 1);
+    setPrice((prevState) => prevState + data.price);
+  };
+
+  const handleMinusButton = async () => {
+    if (counter > 1) {
+      setCounter((prevState) => prevState - 1);
+      setPrice((prevState) => prevState - data.price);
+    }
+  };
 
   return (
     <Container {...rest}>
@@ -39,14 +59,14 @@ export function Card({ data, ...rest }) {
         <MdKeyboardArrowRight size={20} />
       </button>
       <p>{data.description}</p>
-      <span>R$ {data.price}</span>
+      <span>R$ {price}</span>
       <div>
         <div className="actionButtons">
-          <ButtonIcon>
+          <ButtonIcon onClick={handleMinusButton}>
             <AiOutlineMinus />
           </ButtonIcon>
-          <span className="counter">01</span>
-          <ButtonIcon>
+          <span className="counter">{counter}</span>
+          <ButtonIcon onClick={handlePlusButton}>
             <AiOutlinePlus />
           </ButtonIcon>
         </div>

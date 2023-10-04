@@ -124,6 +124,11 @@ export const Content = styled.div`
         }
       }
     }
+    .upload {
+      > input { 
+        display: none;
+      }
+    }
 
     .basic-wrapper,
     .info-wrapper {
