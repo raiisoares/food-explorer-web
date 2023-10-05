@@ -7,15 +7,17 @@ import { SlMenu, SlMagnifier } from "react-icons/sl";
 import { FiX } from "react-icons/fi";
 import { PiReceiptLight } from "react-icons/pi";
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 export function Header({ menu, ...rest }) {
   const { signOut } = useAuth();
+  const navigate = useNavigate()
 
   return (
     <Container {...rest}>
       {menu && (
         <div className="menu">
-          <ButtonIcon>
+          <ButtonIcon onClick={e => navigate(-1)}>
             <FiX size={24} />
           </ButtonIcon>
           <h1>Menu</h1>

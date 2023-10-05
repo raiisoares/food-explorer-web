@@ -5,13 +5,14 @@ import { Input } from "../../components/Input";
 import { SlMagnifier } from "react-icons/sl";
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { USER_ROLE } from "../../utils/roles";
 
 export function Menu() {
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
   const navigate = useNavigate();
   const handleSignOut = () => {
     signOut();
-    navigate(-1);
+    navigate("/");
   };
 
   const handleNewProduct = () => {
@@ -27,7 +28,9 @@ export function Menu() {
           placeholder={"Busque por pratos ou ingredientes"}
         />
         <div className="buttons">
-          <button onClick={handleNewProduct}>Novo Prato</button>
+          {[USER_ROLE.ADMIN].includes(user.role) && (
+            <button onClick={handleNewProduct}>Novo Prato</button>
+          )}
           <button onClick={handleSignOut}>Sair</button>
         </div>
       </Content>
