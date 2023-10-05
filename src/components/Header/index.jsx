@@ -11,13 +11,13 @@ import { useNavigate } from "react-router-dom";
 
 export function Header({ menu, ...rest }) {
   const { signOut } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Container {...rest}>
       {menu && (
         <div className="menu">
-          <ButtonIcon onClick={e => navigate(-1)}>
+          <ButtonIcon onClick={(e) => navigate(-1)}>
             <FiX size={24} />
           </ButtonIcon>
           <h1>Menu</h1>
@@ -35,7 +35,12 @@ export function Header({ menu, ...rest }) {
             placeholder={"Busque por pratos ou ingredientes"}
           />
           <Button icon={PiReceiptLight} title={"pedidos (0)"} />
-          <ButtonIcon className="singUp" onClick={signOut}>
+          <ButtonIcon
+            className="singUp"
+            onClick={(e) => {
+              signOut(), navigate("/");
+            }}
+          >
             <svg
               width="32"
               height="33"

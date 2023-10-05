@@ -12,10 +12,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import imagePlaceholder from "../../assets/food-placeholder.jpg";
+import { USER_ROLE } from "../../utils/roles";
+import { useAuth } from "../../hooks/auth";
 
 export function Detail() {
   const params = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [data, setData] = useState(null);
   const [image, setImage] = useState(null);
 
@@ -72,20 +75,29 @@ export function Detail() {
                 <p>{data.description}</p>
                 <div className="tags">
                   {data.ingredients.map((ingredient, index) => (
-                    <Tag key={String(index)} title={ingredient.name ? ingredient.name : ingredient} />
+                    <Tag
+                      key={String(index)}
+                      title={ingredient.name ? ingredient.name : ingredient}
+                    />
                   ))}
                 </div>
                 <div className="action-wrapper">
-                  <div className="actionButtons">
-                    <ButtonIcon onClick={handleMinusButton}>
-                      <AiOutlineMinus />
-                    </ButtonIcon>
-                    <span className="counter">{counter}</span>
-                    <ButtonIcon onClick={handlePlusButton}>
-                      <AiOutlinePlus />
-                    </ButtonIcon>
-                  </div>
-                  <Button icon={PiReceiptLight} title={`pedir R$ ${price}`} />
+                  {[USER_ROLE.CUSTOMER].includes(user.role) && (
+                    <div className="actionButtons">
+                      <ButtonIcon onClick={handleMinusButton}>
+                        <AiOutlineMinus />
+                      </ButtonIcon>
+                      <span className="counter">{counter}</span>
+                      <ButtonIcon onClick={handlePlusButton}>
+                        <AiOutlinePlus />
+                      </ButtonIcon>
+                    </div>
+                  )}
+                  {[USER_ROLE.ADMIN].includes(user.role) ? (
+                    <Button title={`Editar prato`} />
+                  ) : (
+                    <Button icon={PiReceiptLight} title={`pedir R$ ${price}`} />
+                  )}
                 </div>
               </div>
             </>
