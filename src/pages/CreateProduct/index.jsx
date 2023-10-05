@@ -26,8 +26,8 @@ export function CreateProduct() {
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
 
-  const [avatar, setAvatar] = useState(null);
-  const [avatarFile, setAvatarFile] = useState(null);
+  const [image, setImage] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
 
   const options = [
     { value: "refeição", label: "Refeições" },
@@ -54,21 +54,16 @@ export function CreateProduct() {
 
   const handleImageAvatar = (event) => {
     const file = event.target.files[0];
-    setAvatarFile(file);
+    setImageFile(file);
 
     const imgPreview = URL.createObjectURL(file);
-    setAvatar(imgPreview);
+    setImage(imgPreview);
   };
 
   const handleButtonClick = (e) => {
     e.preventDefault();
     document.getElementById("uploadInput").click();
   };
-
-  useEffect(() => {
-    console.log(avatarFile);
-    console.log(avatar);
-  }, [avatar]);
 
   const create = async () => {
     try {
@@ -81,7 +76,7 @@ export function CreateProduct() {
       });
 
       const fileUploadForm = new FormData();
-      fileUploadForm.append("image", avatarFile);
+      fileUploadForm.append("image", imageFile);
 
       await api.patch(
         `/products/${createProductResponse.data}/image`,

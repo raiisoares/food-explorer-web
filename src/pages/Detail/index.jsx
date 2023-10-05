@@ -72,7 +72,7 @@ export function Detail() {
                 <p>{data.description}</p>
                 <div className="tags">
                   {data.ingredients.map((ingredient, index) => (
-                    <Tag key={String(index)} title={ingredient.name} />
+                    <Tag key={String(index)} title={ingredient.name ? ingredient.name : ingredient} />
                   ))}
                 </div>
                 <div className="action-wrapper">
