@@ -21,6 +21,17 @@ export const Container = styled.div`
     button:nth-child(5) {
       display: none;
     }
+
+    .brand-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      > span {
+        font-size: 1.2rem;
+        color: ${({ theme }) => theme.COLORS.CAKE_100};
+      }
+    }
   }
 
   .menu {
@@ -60,6 +71,16 @@ export const Container = styled.div`
 
       button:nth-child(6) {
         display: none;
+      }
+    }
+
+    .brand-wrapper {
+      flex-direction: column;
+      
+      > span {
+        width: 100%;
+        text-align: end;
+        padding-right: 4.5rem;
       }
     }
   }

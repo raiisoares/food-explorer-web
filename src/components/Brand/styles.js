@@ -51,6 +51,10 @@ export const Container = styled.div`
       font-size: 1.5rem;
       color: ${({ theme }) => theme.COLORS.LIGHT_700};
     }
+
+    span {
+      display: none;
+    }
   }
 
   .auth {

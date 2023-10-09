@@ -76,7 +76,6 @@ export const Container = styled.div`
       border-radius: 50%;
     }
 
-    //TODO: trocar o h2 por um button text
     .details {
       font-size: 2.4rem;
       font-weight: 700;
@@ -105,5 +104,7 @@ export const Container = styled.div`
     .actionButtons {
       font-size: 2rem;
     }
+
+    
   }
 `;

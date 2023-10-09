@@ -6,12 +6,15 @@ import { Input } from "./../Input/index";
 import { SlMenu, SlMagnifier } from "react-icons/sl";
 import { FiX } from "react-icons/fi";
 import { PiReceiptLight } from "react-icons/pi";
+import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
+import { USER_ROLE } from "./../../utils/roles";
 import { useNavigate } from "react-router-dom";
 
 export function Header({ menu, ...rest }) {
   const { signOut } = useAuth();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   return (
     <Container {...rest}>
@@ -26,17 +29,24 @@ export function Header({ menu, ...rest }) {
 
       {!menu && (
         <div className="main-header">
-          <ButtonIcon>
+          <ButtonIcon onClick={(e) => navigate("/menu")}>
             <SlMenu size={20} />
           </ButtonIcon>
-          <Brand />
+          <div className="brand-wrapper">
+            <Brand />
+            {[USER_ROLE.ADMIN].includes(user.role) && <span>admin</span>}
+          </div>
           <Input
             icon={SlMagnifier}
             placeholder={"Busque por pratos ou ingredientes"}
           />
-          <Button icon={PiReceiptLight} title={"pedidos (0)"} />
+          {[USER_ROLE.ADMIN].includes(user.role) ? (
+            <Button title={"Novo Prato"} onClick={(e) => navigate("/create")} />
+          ) : (
+            <Button icon={PiReceiptLight} title={"pedidos (0)"} />
+          )}
           <ButtonIcon
-            className="singUp"
+            className="singOut"
             onClick={(e) => {
               signOut(), navigate("/");
             }}

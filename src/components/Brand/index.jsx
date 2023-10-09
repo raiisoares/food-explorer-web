@@ -16,7 +16,7 @@ export function Brand({ type, ...rest }) {
             fill="#065E7C"
           />
         </svg>
-        <h1>food explorer</h1>
+        <h1>food explorer</h1>       
       </div>
     </Container>
   );
