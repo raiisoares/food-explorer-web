@@ -15,6 +15,8 @@ export const Container = styled.div`
 export const Content = styled.div`
   grid-area: content;
   padding: 3.6rem 2.8rem 1.3rem;
+  max-width: 100%;
+  overflow-x: auto;
 
   .buttons {
     margin-top: 3.6rem;
