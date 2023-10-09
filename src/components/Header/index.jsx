@@ -11,7 +11,7 @@ import { useAuth } from "../../hooks/auth";
 import { USER_ROLE } from "./../../utils/roles";
 import { useNavigate } from "react-router-dom";
 
-export function Header({ menu, ...rest }) {
+export function Header({ menu, onSearchChange, ...rest }) {
   const { signOut } = useAuth();
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -39,6 +39,7 @@ export function Header({ menu, ...rest }) {
           <Input
             icon={SlMagnifier}
             placeholder={"Busque por pratos ou ingredientes"}
+            onChange={(e) => onSearchChange(e.target.value)}
           />
           {[USER_ROLE.ADMIN].includes(user.role) ? (
             <Button title={"Novo Prato"} onClick={(e) => navigate("/create")} />

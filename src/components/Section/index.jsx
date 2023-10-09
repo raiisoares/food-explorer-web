@@ -11,7 +11,7 @@ export function Section({ name, category, ...rest }) {
 
   useEffect(() => {
     setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
-  }, []);
+  }, [products]);
 
   useEffect(() => {
     const fetchData = async () => {

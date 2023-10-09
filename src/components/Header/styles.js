@@ -21,16 +21,16 @@ export const Container = styled.div`
     button:nth-child(5) {
       display: none;
     }
+  }
 
-    .brand-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+  .brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 
-      > span {
-        font-size: 1.2rem;
-        color: ${({ theme }) => theme.COLORS.CAKE_100};
-      }
+    > span {
+      font-size: 1.2rem;
+      color: ${({ theme }) => theme.COLORS.CAKE_100};
     }
   }
 
@@ -76,7 +76,8 @@ export const Container = styled.div`
 
     .brand-wrapper {
       flex-direction: column;
-      
+      gap: 0;
+
       > span {
         width: 100%;
         text-align: end;
