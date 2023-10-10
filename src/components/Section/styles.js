@@ -12,7 +12,19 @@ export const Container = styled.div`
     line-height: 2.52rem;
   }
 
+  .carousel-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+
+    .button-left,
+    .button-right {
+      display: none;
+    }
+  }
   .carousel {
+    width: 100%;
     cursor: grab;
     overflow: hidden;
   }
@@ -24,6 +36,20 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
+    padding: 2.4rem;
+
+    .carousel-wrapper {
+      max-width: 100%;
+      .button-left,
+      .button-right {
+        display: flex;
+        background: transparent;
+        height: fit-content;
+        color: #fff;
+        border: none;
+      }
+    }
+
     h1 {
       font-size: 3.2rem;
       line-height: 4.48rem;

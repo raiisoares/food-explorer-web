@@ -20,7 +20,7 @@ export const Container = styled.div`
     border-radius: 50%;
   }
 
-  .details{
+  .details {
     display: flex;
     align-items: center;
     font-family: Poppins;
@@ -30,6 +30,9 @@ export const Container = styled.div`
     background: transparent;
     border: none;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    > span {
+      width: min-content;
+    }
   }
 
   > span {
@@ -37,7 +40,10 @@ export const Container = styled.div`
   }
 
   > p {
+    max-width: 25rem;
     display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .fav {
@@ -66,7 +72,7 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     height: 46.2rem;
-    width: 30.4rem;
+    min-width: 30.4rem;
     padding: 2.4rem;
     cursor: default;
 
@@ -104,7 +110,5 @@ export const Container = styled.div`
     .actionButtons {
       font-size: 2rem;
     }
-
-    
   }
 `;

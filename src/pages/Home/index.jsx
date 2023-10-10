@@ -20,7 +20,13 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
           </div>
         </div>
-        {search === "" && <Section category={"Refeições"} name={"refeição"} />}
+        {search === "" && (
+          <>
+            <Section category={"Refeições"} name={"refeição"} />
+            <Section category={"Bebidas"} name={"bebida"} />
+            <Section category={"Sobremesas"} name={"sobremesa"} />
+          </>
+        )}
         {search !== "" && <Section category={"Resultado"} name={search} />}
       </Content>
 
