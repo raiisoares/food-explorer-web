@@ -66,6 +66,16 @@ export function CreateProduct() {
   };
 
   const create = async () => {
+    if (
+      name === "" ||
+      type === "" ||
+      description === "" ||
+      price === 0 ||
+      ingredients.length === 0 ||
+      image === null
+    )
+      return alert("Todos os campos são obrigatórios");
+
     try {
       const createProductResponse = await api.post("/products", {
         name,
@@ -82,7 +92,7 @@ export function CreateProduct() {
         `/products/${createProductResponse.data}/image`,
         fileUploadForm,
       );
-      
+
       alert("Produto criado com sucesso.");
       navigate(-1);
     } catch (error) {
@@ -106,7 +116,11 @@ export function CreateProduct() {
                 <div className="img">
                   <label htmlFor="uploadInput">Imagem do prato</label>
                   <ButtonUpload
-                    title="Selecione imagem"
+                    title={
+                      image === null
+                        ? "Selecione a imagem do prato"
+                        : "Imagem já selecionada"
+                    }
                     onClick={handleButtonClick}
                     tabIndex="-1"
                   />

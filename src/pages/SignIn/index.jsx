@@ -12,9 +12,8 @@ export function SignIn() {
 
   const { signIn } = useAuth();
 
-  function handleSignIn() {
-    signIn({ email, password });
-  }
+  const handleSignIn = () => signIn({ email, password });
+
   return (
     <Container>
       <main>
