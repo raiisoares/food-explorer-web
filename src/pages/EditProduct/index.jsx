@@ -129,6 +129,8 @@ export function EditProduct() {
       setIngredients(data.ingredients);
       setDescription(data.description);
       setImage(data.image);
+      const selected = options.find((option) => option.value === data.type);
+      setSelectedOption(selected);
     }
   }, [data]);
   return (
@@ -185,7 +187,7 @@ export function EditProduct() {
                   <fieldset className="info-wrapper">
                     <div className="ingredients">
                       <label htmlFor="">Ingredientes</label>
-                      <div className="">
+                      <div className="ingredients-wrapper">
                         {ingredients.map((ingredient, index) => (
                           <NoteItem
                             key={String(index)}

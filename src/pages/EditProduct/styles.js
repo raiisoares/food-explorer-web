@@ -85,6 +85,12 @@ export const Content = styled.div`
     gap: 1.6rem;
   }
 
+  .ingredients-wrapper {
+    display: flex;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+  }
+
   .items-wrapper {
     display: flex;
     flex-wrap: wrap;

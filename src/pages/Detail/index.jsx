@@ -94,7 +94,10 @@ export function Detail() {
                     </div>
                   )}
                   {[USER_ROLE.ADMIN].includes(user.role) ? (
-                    <Button title={`Editar prato`} />
+                    <Button
+                      title={`Editar prato`}
+                      onClick={(e) => navigate(`/edit/${data.id}`)}
+                    />
                   ) : (
                     <Button icon={PiReceiptLight} title={`pedir R$ ${price}`} />
                   )}
