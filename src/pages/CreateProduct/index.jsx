@@ -151,7 +151,7 @@ export function CreateProduct() {
               <fieldset className="info-wrapper">
                 <div className="ingredients">
                   <label htmlFor="">Ingredientes</label>
-                  <div className="">
+                  <div className="ingredients-wrapper">
                     {ingredients.map((ingredient, index) => (
                       <NoteItem
                         key={String(index)}
