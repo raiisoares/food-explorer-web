@@ -50,3 +50,5 @@ Pronto! Agora você pode explorar o Food Explorer e desfrutar das incríveis fun
 - **Pedidos:** Realize pedidos diretamente pelo aplicativo.
 - **Histórico de Pedidos:** Acompanhe seus pedidos anteriores.
 - **Versão para Tablets:** Além de abranger desktops e smartphones, uma versão para tablets será disponibilizada.
+- **React hook-forms:** Uso do hook para melhorar a performance e tratamento de erros nos formulários.
+
