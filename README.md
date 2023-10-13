@@ -2,6 +2,8 @@
 
 Bem-vindo ao Food Explorer, um projeto desenvolvido no programa Explorer da Rocketseat! Esta é uma aplicação React que oferece funcionalidades para explorar e gerenciar dados de um restaurante. Abaixo, você encontrará informações detalhadas sobre o projeto, suas funcionalidades e as tecnologias utilizadas.
 
+**link para a aplicação:** https://foodexpweb.netlify.app
+
 ## Funcionalidades
 
 - **Adicionar Produtos:** Os usuários podem adicionar novos pratos ao banco de dados.
@@ -50,3 +52,5 @@ Pronto! Agora você pode explorar o Food Explorer e desfrutar das incríveis fun
 - **Pedidos:** Realize pedidos diretamente pelo aplicativo.
 - **Histórico de Pedidos:** Acompanhe seus pedidos anteriores.
 - **Versão para Tablets:** Além de abranger desktops e smartphones, uma versão para tablets será disponibilizada.
+- **React hook-forms:** Uso do hook para melhorar a performance e tratamento de erros nos formulários.
+
