@@ -33,13 +33,13 @@ export function Card({ data, ...rest }) {
 
   const handlePlusButton = async () => {
     setCounter((prevState) => prevState + 1);
-    setPrice((prevState) => prevState + data.price);
+    setPrice((prevState) => parseFloat((prevState + data.price).toFixed(2)));
   };
 
   const handleMinusButton = async () => {
     if (counter > 1) {
       setCounter((prevState) => prevState - 1);
-      setPrice((prevState) => prevState - data.price);
+      setPrice((prevState) => parseFloat((prevState - data.price).toFixed(2)));
     }
   };
 

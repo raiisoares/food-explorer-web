@@ -28,14 +28,14 @@ export function Detail() {
   const handlePlusButton = async () => {
     if (data) {
       setCounter((prevState) => prevState + 1);
-      setPrice((prevState) => prevState + data.price);
+      setPrice((prevState) => parseFloat((prevState + data.price).toFixed(2)));
     }
   };
 
   const handleMinusButton = async () => {
     if (data && counter > 1) {
       setCounter((prevState) => prevState - 1);
-      setPrice((prevState) => prevState - data.price);
+      setPrice((prevState) => parseFloat((prevState - data.price).toFixed(2)));
     }
   };
 

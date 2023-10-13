@@ -60,6 +60,16 @@ export function CreateProduct() {
     setImage(imgPreview);
   };
 
+  const handlePriceChange = (e) => {
+    let inputValue = e.target.value;
+
+    inputValue = inputValue.replace(/[^\d.]/g, "");
+
+    const formattedValue = parseFloat(inputValue).toFixed(2);
+
+    setPrice(formattedValue);
+  };
+
   const handleButtonClick = (e) => {
     e.preventDefault();
     document.getElementById("uploadInput").click();
@@ -172,10 +182,7 @@ export function CreateProduct() {
                 </div>
                 <div className="price">
                   <label htmlFor="">Preço</label>
-                  <Input
-                    placeholder="R$ 00,00"
-                    onChange={(e) => setPrice(e.target.value)}
-                  />
+                  <Input placeholder="R$ 00,00" onChange={handlePriceChange} />
                 </div>
               </fieldset>
               <label htmlFor="">Descrição</label>
