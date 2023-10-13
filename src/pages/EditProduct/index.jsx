@@ -124,7 +124,7 @@ export function EditProduct() {
   useEffect(() => {
     if (data) {
       setName(data.name);
-      setPrice(data.price);
+      setPrice(parseFloat(data.price).toFixed(2));
       setType(data.type);
       setIngredients(data.ingredients);
       setDescription(data.description);

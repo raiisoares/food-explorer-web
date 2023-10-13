@@ -20,7 +20,7 @@ export function CreateProduct() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [type, setType] = useState("");
 
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(0.0);
   const [description, setDescription] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
@@ -58,16 +58,6 @@ export function CreateProduct() {
 
     const imgPreview = URL.createObjectURL(file);
     setImage(imgPreview);
-  };
-
-  const handlePriceChange = (e) => {
-    let inputValue = e.target.value;
-
-    inputValue = inputValue.replace(/[^\d.]/g, "");
-
-    const formattedValue = parseFloat(inputValue).toFixed(2);
-
-    setPrice(formattedValue);
   };
 
   const handleButtonClick = (e) => {
@@ -182,7 +172,13 @@ export function CreateProduct() {
                 </div>
                 <div className="price">
                   <label htmlFor="">Preço</label>
-                  <Input placeholder="R$ 00,00" onChange={handlePriceChange} />
+                  <Input
+                    placeholder="R$ 00,00"
+                    onChange={(e) => {
+                      const inputValue = e.target.value;
+                      setPrice(parseFloat(inputValue).toFixed(2));
+                    }}
+                  />
                 </div>
               </fieldset>
               <label htmlFor="">Descrição</label>

@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-// import "swiper/css/free-mode";
 
 export function Section({ name, category, ...rest }) {
   const [products, setProducts] = useState([]);
@@ -49,7 +48,6 @@ export function Section({ name, category, ...rest }) {
   useEffect(() => {
     const handleResizeListener = () => {
       handleResize();
-      console.log("Resize event triggered");
     };
 
     window.addEventListener("resize", handleResizeListener);
@@ -61,7 +59,6 @@ export function Section({ name, category, ...rest }) {
 
   useEffect(() => {
     handleResize();
-    console.log("Resize event triggered");
   }, []);
 
   return (
@@ -72,7 +69,6 @@ export function Section({ name, category, ...rest }) {
         slidesPerView={slidesPerView}
         spaceBetween={gap}
         navigation={isNavigationEnabled}
-        // grabCursor={draggable}
         freeMode={freeMode}
         loop={freeMode}
       >
