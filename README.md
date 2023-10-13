@@ -28,7 +28,7 @@ Siga estas etapas para executar o Food Explorer em sua máquina:
 1. Navegue até o diretório do projeto: `cd food-explorer-web`
 2. Instale as dependências: `npm install` ou `yarn install`
 3. Inicie o aplicativo: `npm run dev` ou `yarn dev`
-4. Abra o navegador e acesse `http://localhost:3000`
+4. Abra o navegador e acesse `http://localhost:5173`
 
 Pronto! Agora você pode explorar o Food Explorer e desfrutar das incríveis funcionalidades que ele oferece.
 
