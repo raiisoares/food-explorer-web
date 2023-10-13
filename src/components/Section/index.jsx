@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "./styles";
 import { Card } from "../Card";
 import { api } from "../../services/api";
@@ -6,9 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import "swiper/css/free-mode";
+// import "swiper/css/free-mode";
 
 export function Section({ name, category, ...rest }) {
   const [products, setProducts] = useState([]);
@@ -22,7 +20,7 @@ export function Section({ name, category, ...rest }) {
   const handleResize = () => {
     if (window.innerWidth < 768) {
       setSlidesPerView(2);
-      setGap(100);
+      setGap(120);
       setIsNavigationEnabled(false);
       setDraggable(true);
       setFreeMode(true);
@@ -32,7 +30,6 @@ export function Section({ name, category, ...rest }) {
       setIsNavigationEnabled(true);
       setDraggable(false);
       setFreeMode(false);
-      setCenter(false);
     }
   };
 
@@ -50,8 +47,22 @@ export function Section({ name, category, ...rest }) {
   }, [name]);
 
   useEffect(() => {
+    const handleResizeListener = () => {
+      handleResize();
+      console.log("Resize event triggered");
+    };
+
+    window.addEventListener("resize", handleResizeListener);
+
+    return () => {
+      window.removeEventListener("resize", handleResizeListener);
+    };
+  }, []);
+
+  useEffect(() => {
     handleResize();
-  }, [window.innerWidth]);
+    console.log("Resize event triggered");
+  }, []);
 
   return (
     <Container {...rest}>
@@ -61,10 +72,9 @@ export function Section({ name, category, ...rest }) {
         slidesPerView={slidesPerView}
         spaceBetween={gap}
         navigation={isNavigationEnabled}
-        grabCursor={draggable}
+        // grabCursor={draggable}
         freeMode={freeMode}
-        // loop={true}
-        // centeredSlides={center}
+        loop={freeMode}
       >
         {products.map((product) => (
           <SwiperSlide key={String(product.id)}>

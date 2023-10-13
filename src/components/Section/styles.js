@@ -11,7 +11,14 @@ export const Container = styled.div`
     font-weight: 500;
     line-height: 2.52rem;
   }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  }
 
+  .swiper-container {
+    /* padding-right: 2.4rem; */
+  }
 
   @media (min-width: 768px) {
     padding: 2.4rem;

@@ -15,6 +15,7 @@ export default createGlobalStyle`
         background-color: ${({ theme }) => theme.COLORS.DARK_400};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         -webkit-font-smoothing: antialiased;
+        scroll-behavior: smooth;
     }
 
     body, input, button, textarea {
@@ -45,4 +46,35 @@ export default createGlobalStyle`
     outline: 0;
     resize: none;
 }
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Estilizando o botão superior da barra de rolagem */
+::-webkit-scrollbar-button:start {
+  display: none;
+}
+
+/* Estilizando o botão inferior da barra de rolagem */
+::-webkit-scrollbar-button:end {
+  display: none;
+}
+
+/* Estilizando o rastreador da barra de rolagem */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Estilizando a alça (thumb) da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+}
+
+/* Estilizando a alça quando hover na barra de rolagem */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 `;
