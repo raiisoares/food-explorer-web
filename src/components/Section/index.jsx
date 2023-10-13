@@ -20,7 +20,6 @@ export function Section({ name, category, ...rest }) {
       setGap(120);
       setIsNavigationEnabled(false);
       setFreeMode(true);
-      setCenter(true);
     } else {
       setSlidesPerView(4);
       setIsNavigationEnabled(true);
