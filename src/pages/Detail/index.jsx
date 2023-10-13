@@ -21,24 +21,24 @@ export function Detail() {
   const { user } = useAuth();
   const [data, setData] = useState(null);
   const [image, setImage] = useState(null);
-
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(0.0);
   const [counter, setCounter] = useState(1);
 
   const handlePlusButton = async () => {
-    if (data) {
-      setCounter((prevState) => prevState + 1);
-      setPrice((prevState) => parseFloat((prevState + data.price)));
-    }
+    setCounter((prevState) => prevState + 1);
+    setPrice((prevState) =>
+      (parseFloat(prevState) + parseFloat(data.price)).toFixed(2),
+    );
   };
 
   const handleMinusButton = async () => {
-    if (data && counter > 1) {
+    if (counter > 1) {
       setCounter((prevState) => prevState - 1);
-      setPrice((prevState) => parseFloat((prevState - data.price)));
+      setPrice((prevState) =>
+        (parseFloat(prevState) - parseFloat(data.price)).toFixed(2),
+      );
     }
   };
-
   useEffect(() => {
     async function fetchProduct() {
       const response = await api.get(`/products/${params.id}`);
@@ -53,7 +53,7 @@ export function Detail() {
         ? `${api.defaults.baseURL}/files/${data.image}`
         : imagePlaceholder;
       setImage(imageUrl);
-      setPrice(data.price);
+      setPrice(parseFloat(data.price).toFixed(2));
     }
   }, [data]);
 

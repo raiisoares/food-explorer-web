@@ -12,7 +12,9 @@ export function SignIn() {
 
   const { signIn } = useAuth();
 
-  const handleSignIn = async () => signIn({ email, password });
+  function handleSignIn() {
+    signIn({ email, password });
+  }
 
   return (
     <Container>

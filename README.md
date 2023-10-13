@@ -32,6 +32,18 @@ Siga estas etapas para executar o Food Explorer em sua máquina:
 
 Pronto! Agora você pode explorar o Food Explorer e desfrutar das incríveis funcionalidades que ele oferece.
 
+## Contas pré-definidas
+
+### Dados para logIn como admin
+- **nome:** admin
+- **email:** admin@email.com
+- **senha:** 123456
+
+### Dados para logIn como client
+- **nome:** Client
+- **email:** client@email.com
+- **senha:** 123456
+
 ## Funcionalidades a Serem Acrescentadas 
 
 - **Pratos Favoritos:** Em breve, os usuários poderão marcar pratos como favoritos para fácil acesso.
