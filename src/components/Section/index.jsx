@@ -12,22 +12,18 @@ export function Section({ name, category, ...rest }) {
   const [slidesPerView, setSlidesPerView] = useState(0);
   const [isNavigationEnabled, setIsNavigationEnabled] = useState(true);
   const [gap, setGap] = useState(0);
-  const [draggable, setDraggable] = useState(true);
   const [freeMode, setFreeMode] = useState(true);
-  const [center, setCenter] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth < 768) {
       setSlidesPerView(2);
       setGap(120);
       setIsNavigationEnabled(false);
-      setDraggable(true);
       setFreeMode(true);
       setCenter(true);
     } else {
       setSlidesPerView(4);
       setIsNavigationEnabled(true);
-      setDraggable(false);
       setFreeMode(false);
     }
   };
