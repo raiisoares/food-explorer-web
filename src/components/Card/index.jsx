@@ -13,7 +13,7 @@ import { USER_ROLE } from "./../../utils/roles";
 export function Card({ data, ...rest }) {
   const navigate = useNavigate();
   const { user } = useAuth();
-  const [price, setPrice] = useState(data.price);
+  const [price, setPrice] = useState(parseFloat(data.price).toFixed(2));
   const [counter, setCounter] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
   const imageUrl = data.image
@@ -33,13 +33,17 @@ export function Card({ data, ...rest }) {
 
   const handlePlusButton = async () => {
     setCounter((prevState) => prevState + 1);
-    setPrice((prevState) => prevState + data.price);
+    setPrice((prevState) =>
+      (parseFloat(prevState) + parseFloat(data.price)).toFixed(2),
+    );
   };
 
   const handleMinusButton = async () => {
     if (counter > 1) {
       setCounter((prevState) => prevState - 1);
-      setPrice((prevState) => prevState - data.price);
+      setPrice((prevState) =>
+        (parseFloat(prevState) - parseFloat(data.price)).toFixed(2),
+      );
     }
   };
 

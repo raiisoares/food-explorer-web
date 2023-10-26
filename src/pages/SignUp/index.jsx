@@ -18,6 +18,10 @@ export function SignUp() {
       return alert("Preencha todos os campos!");
     }
 
+    if (password.length < 6) {
+      return alert("A senha deve ter no mínimo 6 caracteres");
+    }
+
     api
       .post("/users", { name, email, password })
       .then(() => {
@@ -63,7 +67,10 @@ export function SignUp() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-            <Button title={"Criar conta"} onClick={handleSignUp} />
+            <Button
+              title={"Criar conta"}
+              onClick={handleSignUp}
+            />
             <Link to={"/"}>Já tenho uma conta</Link>
           </form>
         </div>

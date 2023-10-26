@@ -93,6 +93,12 @@ export const Content = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_900};
   }
 
+  .ingredients-wrapper {
+    display: flex;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+  }
+
   @media (min-width: 768px) {
     > main {
       > a {
@@ -125,7 +131,7 @@ export const Content = styled.div`
       }
     }
     .upload {
-      > input { 
+      > input {
         display: none;
       }
     }

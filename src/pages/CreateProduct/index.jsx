@@ -20,7 +20,7 @@ export function CreateProduct() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [type, setType] = useState("");
 
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(0.0);
   const [description, setDescription] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
@@ -66,6 +66,16 @@ export function CreateProduct() {
   };
 
   const create = async () => {
+    if (
+      name === "" ||
+      type === "" ||
+      description === "" ||
+      price === 0 ||
+      ingredients.length === 0 ||
+      image === null
+    )
+      return alert("Todos os campos são obrigatórios");
+
     try {
       const createProductResponse = await api.post("/products", {
         name,
@@ -82,7 +92,7 @@ export function CreateProduct() {
         `/products/${createProductResponse.data}/image`,
         fileUploadForm,
       );
-      
+
       alert("Produto criado com sucesso.");
       navigate(-1);
     } catch (error) {
@@ -106,7 +116,11 @@ export function CreateProduct() {
                 <div className="img">
                   <label htmlFor="uploadInput">Imagem do prato</label>
                   <ButtonUpload
-                    title="Selecione imagem"
+                    title={
+                      image === null
+                        ? "Selecione a imagem do prato"
+                        : "Imagem já selecionada"
+                    }
                     onClick={handleButtonClick}
                     tabIndex="-1"
                   />
@@ -137,7 +151,7 @@ export function CreateProduct() {
               <fieldset className="info-wrapper">
                 <div className="ingredients">
                   <label htmlFor="">Ingredientes</label>
-                  <div className="">
+                  <div className="ingredients-wrapper">
                     {ingredients.map((ingredient, index) => (
                       <NoteItem
                         key={String(index)}
@@ -160,7 +174,10 @@ export function CreateProduct() {
                   <label htmlFor="">Preço</label>
                   <Input
                     placeholder="R$ 00,00"
-                    onChange={(e) => setPrice(e.target.value)}
+                    onChange={(e) => {
+                      const inputValue = e.target.value;
+                      setPrice(parseFloat(inputValue).toFixed(2));
+                    }}
                   />
                 </div>
               </fieldset>

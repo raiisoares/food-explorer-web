@@ -72,7 +72,7 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     height: 46.2rem;
-    min-width: 30.4rem;
+    width: 30.4rem;
     padding: 2.4rem;
     cursor: default;
 

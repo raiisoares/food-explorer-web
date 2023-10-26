@@ -1,14 +1,14 @@
 import { FiPlus, FiX } from "react-icons/fi";
-import { Container, Input, Button } from "./styles";
+import { Container, Button } from "./styles";
 
 export function NoteItem({ isNew, value, onClick, ...rest }) {
   return (
     <Container isNew={isNew}>
-      <Input
+      <input
         type="text"
         value={value}
         isNew={isNew}
-        className="input-width"
+        style={{ width: isNew ? "7rem" : `${value.length}ch` }}
         readOnly={!isNew}
         {...rest}
       />

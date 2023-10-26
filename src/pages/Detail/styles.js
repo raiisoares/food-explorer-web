@@ -104,6 +104,7 @@ export const Content = styled.div`
         }
 
         > p {
+          text-align: start;
           font-size: 2.4rem;
           line-height: 3.6rem;
         }

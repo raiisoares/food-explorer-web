@@ -55,7 +55,7 @@ export function EditProduct() {
     setType(selectedOption.value);
   };
 
-  const handleImageAvatar = (event) => {
+  const handleProductImage = (event) => {
     const file = event.target.files[0];
     setImageFile(file);
 
@@ -69,6 +69,16 @@ export function EditProduct() {
   };
 
   const update = async () => {
+    if (
+      name === "" ||
+      type === "" ||
+      description === "" ||
+      price === 0 ||
+      ingredients.length === 0 ||
+      image === null
+    )
+      return alert("Todos os campos são obrigatórios");
+
     try {
       const editProductResponse = await api.put(`/products/${params.id}`, {
         name,
@@ -78,15 +88,13 @@ export function EditProduct() {
         ingredients,
       });
 
-      if (image !== null) {
-        const fileUploadForm = new FormData();
-        fileUploadForm.append("image", imageFile);
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("image", imageFile);
 
-        await api.patch(
-          `/products/${editProductResponse.data.id}/image`,
-          fileUploadForm,
-        );
-      }
+      await api.patch(
+        `/products/${editProductResponse.data.id}/image`,
+        fileUploadForm,
+      );
 
       alert("Produto editado com sucesso.");
       navigate(-1);
@@ -116,10 +124,13 @@ export function EditProduct() {
   useEffect(() => {
     if (data) {
       setName(data.name);
-      setPrice(data.price);
+      setPrice(parseFloat(data.price).toFixed(2));
       setType(data.type);
       setIngredients(data.ingredients);
       setDescription(data.description);
+      setImage(data.image);
+      const selected = options.find((option) => option.value === data.type);
+      setSelectedOption(selected);
     }
   }, [data]);
   return (
@@ -140,7 +151,11 @@ export function EditProduct() {
                     <div className="img">
                       <label htmlFor="uploadInput">Imagem do prato</label>
                       <ButtonUpload
-                        title="Selecione imagem"
+                        title={
+                          image === null
+                            ? "Selecione a imagem do prato"
+                            : "Imagem já selecionada"
+                        }
                         onClick={handleButtonClick}
                         tabIndex="-1"
                       />
@@ -148,7 +163,7 @@ export function EditProduct() {
                         type="file"
                         id="uploadInput"
                         style={{ display: "none" }}
-                        onChange={handleImageAvatar}
+                        onChange={handleProductImage}
                       />
                     </div>
                     <div className="name">
@@ -172,7 +187,7 @@ export function EditProduct() {
                   <fieldset className="info-wrapper">
                     <div className="ingredients">
                       <label htmlFor="">Ingredientes</label>
-                      <div className="">
+                      <div className="ingredients-wrapper">
                         {ingredients.map((ingredient, index) => (
                           <NoteItem
                             key={String(index)}
