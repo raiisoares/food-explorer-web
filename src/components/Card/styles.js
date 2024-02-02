@@ -31,7 +31,9 @@ export const Container = styled.div`
     border: none;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
     > span {
-      width: min-content;
+      text-align: center;
+      max-width: 25rem;
+      text-overflow: ellipsis;
     }
   }
 
@@ -40,10 +42,11 @@ export const Container = styled.div`
   }
 
   > p {
+    display: block;
     max-width: 25rem;
-    display: none;
-    overflow: hidden;
+    height: 4.6rem;
     text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .fav {
